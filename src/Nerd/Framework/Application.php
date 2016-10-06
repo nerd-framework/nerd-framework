@@ -5,10 +5,21 @@ namespace Nerd\Framework;
 use Nerd\Framework\Container\Container;
 use Nerd\Framework\Http\RequestContract;
 use Nerd\Framework\Http\ResponseContract;
+use Nerd\Framework\Routing\Router;
 use Nerd\Framework\Routing\RouterContract;
 
 class Application extends Container implements ApplicationContract
 {
+    public function __construct()
+    {
+        $this->initCoreServices();
+    }
+
+    private function initCoreServices()
+    {
+        $this->bind(RouterContract::class, new Router());
+    }
+
     /**
      * @param RequestContract $request
      * @return ResponseContract
