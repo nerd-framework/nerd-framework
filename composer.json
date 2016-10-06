@@ -1,0 +1,22 @@
+{
+    "name": "nerd-framework/nerd-framework",
+    "description": "Nerd Framework",
+    "type": "project",
+    "require-dev": {
+        "phpunit/phpunit": "^5.5",
+        "squizlabs/php_codesniffer": "^2.7",
+        "satooshi/php-coveralls": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Roman Lakhtadyr",
+            "email": "roman.lakhtadyr@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "nerd-framework/nerd-container": "dev-master",
+        "nerd-framework/nerd-routing": "dev-master"
+    }
+}
