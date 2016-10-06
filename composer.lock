@@ -4,9 +4,51 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a51c5c0bda435b91a8d1147885d4d085",
-    "content-hash": "bf967b81c18b3d60b9efb61f23cbe315",
+    "hash": "b6d8ae895f5834bc2bbfb820bd29a899",
+    "content-hash": "b7d38ee19de731d973d446a61cf1715e",
     "packages": [
+        {
+            "name": "nerd-components/config",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nerd-components/config.git",
+                "reference": "c5d2d17ee56b1093a150b6406a8b0f738866599e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nerd-components/config/zipball/c5d2d17ee56b1093a150b6406a8b0f738866599e",
+                "reference": "c5d2d17ee56b1093a150b6406a8b0f738866599e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.6"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/Config.php",
+                    "src/Formats.php",
+                    "src/Parsers/PHP.php",
+                    "src/Parsers/JSON.php",
+                    "src/Parsers/INI.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Lakhtadyr",
+                    "email": "roman.lakhtadyr@gmail.com"
+                }
+            ],
+            "description": "Simple stateless configuration manager",
+            "time": "2016-10-02 16:32:44"
+        },
         {
             "name": "nerd-components/lambda",
             "version": "v2.0.1",
@@ -57,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-container.git",
-                "reference": "2c15d7b9a2d819ee6ac62f76245fd9f24420b28d"
+                "reference": "fc309a25e8955b6b94a6daf267c21ffb3a95cd9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/2c15d7b9a2d819ee6ac62f76245fd9f24420b28d",
-                "reference": "2c15d7b9a2d819ee6ac62f76245fd9f24420b28d",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/fc309a25e8955b6b94a6daf267c21ffb3a95cd9b",
+                "reference": "fc309a25e8955b6b94a6daf267c21ffb3a95cd9b",
                 "shasum": ""
             },
             "require": {
@@ -88,7 +130,88 @@
                 }
             ],
             "description": "Lightweight IoC container with dependency injection",
-            "time": "2016-10-05 16:24:48"
+            "time": "2016-10-06 13:32:41"
+        },
+        {
+            "name": "nerd-framework/nerd-contracts",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nerd-framework/nerd-contracts.git",
+                "reference": "3d7f48a7377ac938c27af2d329c3e9948e4c8d2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/3d7f48a7377ac938c27af2d329c3e9948e4c8d2e",
+                "reference": "3d7f48a7377ac938c27af2d329c3e9948e4c8d2e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Lakhtadyr",
+                    "email": "roman.lakhtadyr@gmail.com"
+                }
+            ],
+            "description": "Contracts used in Nerd Framework",
+            "time": "2016-10-06 13:09:06"
+        },
+        {
+            "name": "nerd-framework/nerd-http",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nerd-framework/nerd-http.git",
+                "reference": "418e33e017c8294f843fe693d5fe7b5ab5ddd39f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-http/zipball/418e33e017c8294f843fe693d5fe7b5ab5ddd39f",
+                "reference": "418e33e017c8294f843fe693d5fe7b5ab5ddd39f",
+                "shasum": ""
+            },
+            "require": {
+                "nerd-framework/nerd-contracts": "dev-master",
+                "php": ">=5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.5",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [],
+                "psr-4": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Lakhtadyr",
+                    "email": "roman.lakhtadyr@gmail.com"
+                }
+            ],
+            "description": "HTTP Request and Response for Nerd Framework",
+            "time": "2016-10-06 13:10:30"
         },
         {
             "name": "nerd-framework/nerd-routing",
@@ -96,16 +219,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-routing.git",
-                "reference": "bcee65667547b2d0c26536cf32a2d88fb5d6a094"
+                "reference": "03d044181f91a4b4428181a29a85a7ee8a803cfd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-routing/zipball/bcee65667547b2d0c26536cf32a2d88fb5d6a094",
-                "reference": "bcee65667547b2d0c26536cf32a2d88fb5d6a094",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-routing/zipball/03d044181f91a4b4428181a29a85a7ee8a803cfd",
+                "reference": "03d044181f91a4b4428181a29a85a7ee8a803cfd",
                 "shasum": ""
             },
             "require": {
                 "nerd-components/lambda": "^2.0",
+                "nerd-framework/nerd-contracts": "dev-master",
                 "php": ">=5.6"
             },
             "require-dev": {
@@ -116,9 +240,8 @@
             "type": "library",
             "autoload": {
                 "psr-4": {
-                    "Nerd\\": [
-                        "src/Nerd/"
-                    ]
+                    "": "src/",
+                    "tests\\": "tests/"
                 },
                 "files": [
                     "src/Nerd/Framework/Routing.php"
@@ -132,7 +255,7 @@
                 }
             ],
             "description": "Router used in Nerd Framework",
-            "time": "2016-10-05 18:11:22"
+            "time": "2016-10-06 13:17:35"
         }
     ],
     "packages-dev": [
@@ -2107,12 +2230,15 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "nerd-framework/nerd-container": 20,
-        "nerd-framework/nerd-routing": 20
+        "nerd-framework/nerd-routing": 20,
+        "nerd-framework/nerd-http": 20,
+        "nerd-framework/nerd-contracts": 20,
+        "nerd-components/config": 20
     },
-    "prefer-stable": false,
+    "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": []
