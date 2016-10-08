@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6d8ae895f5834bc2bbfb820bd29a899",
+    "hash": "5d52dc7ec290261733a3011e5d68537f",
     "content-hash": "b7d38ee19de731d973d446a61cf1715e",
     "packages": [
         {
@@ -13,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-components/config.git",
-                "reference": "c5d2d17ee56b1093a150b6406a8b0f738866599e"
+                "reference": "7e4eb180026e2cb464820a45cea3cc3b0a2fd3b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-components/config/zipball/c5d2d17ee56b1093a150b6406a8b0f738866599e",
-                "reference": "c5d2d17ee56b1093a150b6406a8b0f738866599e",
+                "url": "https://api.github.com/repos/nerd-components/config/zipball/7e4eb180026e2cb464820a45cea3cc3b0a2fd3b7",
+                "reference": "7e4eb180026e2cb464820a45cea3cc3b0a2fd3b7",
                 "shasum": ""
             },
             "require-dev": {
@@ -47,7 +47,7 @@
                 }
             ],
             "description": "Simple stateless configuration manager",
-            "time": "2016-10-02 16:32:44"
+            "time": "2016-10-08 20:14:42"
         },
         {
             "name": "nerd-components/lambda",
@@ -138,12 +138,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-contracts.git",
-                "reference": "1eed3b642a0326bda263282f272bfb81a60928dd"
+                "reference": "ff80a028f279c5f851b19f04bb969d097a1e7458"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/1eed3b642a0326bda263282f272bfb81a60928dd",
-                "reference": "1eed3b642a0326bda263282f272bfb81a60928dd",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/ff80a028f279c5f851b19f04bb969d097a1e7458",
+                "reference": "ff80a028f279c5f851b19f04bb969d097a1e7458",
                 "shasum": ""
             },
             "require-dev": {
@@ -168,7 +168,7 @@
                 }
             ],
             "description": "Contracts used in Nerd Framework",
-            "time": "2016-10-06 14:31:53"
+            "time": "2016-10-08 15:18:57"
         },
         {
             "name": "nerd-framework/nerd-http",

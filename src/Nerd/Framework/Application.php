@@ -7,19 +7,31 @@ use Nerd\Framework\Http\ExceptionServiceContract;
 use Nerd\Framework\Http\RequestContract;
 use Nerd\Framework\Http\ResponseContract;
 use Nerd\Framework\Http\ResponseServiceContract;
-use Nerd\Framework\Routing\Router;
+use Nerd\Framework\Providers\ConfigServiceProvider;
+use Nerd\Framework\Providers\RoutingServiceProvider;
 use Nerd\Framework\Routing\RouterContract;
+use Nerd\Framework\Services\ServiceProviderContract;
 
 class Application extends Container implements ApplicationContract
 {
-    public function __construct()
+    use Traits\ApplicationDirsTrait;
+
+    private $coreServiceProviders = [
+        ConfigServiceProvider::class,
+        RoutingServiceProvider::class
+    ];
+
+    private $bootedServiceProviders = [];
+
+    public function __construct($baseDir)
     {
-        $this->initCoreServices();
+        $this->setBaseDir($baseDir);
+        $this->bootServiceProviders();
     }
 
-    private function initCoreServices()
+    private function bootServiceProviders()
     {
-        $this->bind(RouterContract::class, new Router());
+        array_walk($this->coreServiceProviders, [$this, 'bootServiceProvider']);
     }
 
     /**
@@ -31,7 +43,6 @@ class Application extends Container implements ApplicationContract
         try {
             $router = $this->get(RouterContract::class);
             $response = $router->handle($request);
-
             return $this->normalizeResponse($response);
         } catch (\Exception $exception) {
             return $this->handleException($exception);
@@ -71,5 +82,22 @@ class Application extends Container implements ApplicationContract
         $handler = $this->get(ExceptionServiceContract::class);
 
         return $handler->handle($exception);
+    }
+
+    protected function bootServiceProvider($serviceProvider)
+    {
+        // Skip service provider if it already booted
+        if (array_key_exists($serviceProvider, $this->bootedServiceProviders)) {
+            return;
+        }
+
+        /**
+         * @var ServiceProviderContract $instance
+         */
+        $instance = new $serviceProvider($this);
+        $instance->register();
+
+        // Mark current service provider as booted
+        $this->bootedServiceProviders[$serviceProvider] = true;
     }
 }
