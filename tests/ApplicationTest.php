@@ -25,7 +25,7 @@ class ApplicationTest extends TestCase
         $this->assertInstanceOf(Application::class, $this->app);
     }
 
-    public function testCoreConfigService()
+    public function testConfigService()
     {
         /**
          * @var ConfigService $configService
