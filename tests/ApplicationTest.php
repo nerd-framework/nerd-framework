@@ -3,6 +3,7 @@
 namespace tests;
 
 use Nerd\Framework\Application;
+use Nerd\Framework\Routing\RouterContract;
 use Nerd\Framework\Services\ConfigService;
 use PHPUnit\Framework\TestCase;
 
@@ -24,7 +25,7 @@ class ApplicationTest extends TestCase
         $this->assertInstanceOf(Application::class, $this->app);
     }
 
-    public function testCoreServices()
+    public function testCoreConfigService()
     {
         /**
          * @var ConfigService $configService
@@ -32,5 +33,15 @@ class ApplicationTest extends TestCase
         $configService = $this->app->get(ConfigService::class);
 
         $this->assertEquals('test', $configService->getSetting('app.env'));
+    }
+
+    public function testRoutingService()
+    {
+        /**
+         * @var RouterContract $routingService
+         */
+        $routingService = $this->app->get(RouterContract::class);
+
+        $this->assertInstanceOf(RouterContract::class, $routingService);
     }
 }
