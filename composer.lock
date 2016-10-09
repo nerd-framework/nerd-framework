@@ -99,15 +99,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-container.git",
-                "reference": "fc309a25e8955b6b94a6daf267c21ffb3a95cd9b"
+                "reference": "9b569697a7fe7b9593863a2fc0b6346fea353cb6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/fc309a25e8955b6b94a6daf267c21ffb3a95cd9b",
-                "reference": "fc309a25e8955b6b94a6daf267c21ffb3a95cd9b",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/9b569697a7fe7b9593863a2fc0b6346fea353cb6",
+                "reference": "9b569697a7fe7b9593863a2fc0b6346fea353cb6",
                 "shasum": ""
             },
             "require": {
+                "nerd-framework/nerd-contracts": "dev-master",
                 "php": ">=5.6"
             },
             "require-dev": {
@@ -130,7 +131,7 @@
                 }
             ],
             "description": "Lightweight IoC container with dependency injection",
-            "time": "2016-10-06 13:32:41"
+            "time": "2016-10-09 10:07:37"
         },
         {
             "name": "nerd-framework/nerd-contracts",
@@ -138,12 +139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-contracts.git",
-                "reference": "ff80a028f279c5f851b19f04bb969d097a1e7458"
+                "reference": "f443f8befa28059a29775cfc82dc2da6a20d6434"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/ff80a028f279c5f851b19f04bb969d097a1e7458",
-                "reference": "ff80a028f279c5f851b19f04bb969d097a1e7458",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/f443f8befa28059a29775cfc82dc2da6a20d6434",
+                "reference": "f443f8befa28059a29775cfc82dc2da6a20d6434",
                 "shasum": ""
             },
             "require-dev": {
@@ -168,7 +169,7 @@
                 }
             ],
             "description": "Contracts used in Nerd Framework",
-            "time": "2016-10-08 15:18:57"
+            "time": "2016-10-08 20:39:41"
         },
         {
             "name": "nerd-framework/nerd-http",
@@ -987,16 +988,16 @@
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902"
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/03500345483e1e17b52e2e4d34a89c9408ab2902",
-                "reference": "03500345483e1e17b52e2e4d34a89c9408ab2902",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
+                "reference": "238d7a2723bce689c79eeac9c7d5e1d623bb9dc2",
                 "shasum": ""
             },
             "require": {
@@ -1042,7 +1043,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2016-10-04 11:03:26"
+            "time": "2016-10-09 07:01:45"
         },
         {
             "name": "psr/log",

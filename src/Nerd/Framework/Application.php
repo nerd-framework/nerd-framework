@@ -16,11 +16,17 @@ class Application extends Container implements ApplicationContract
 {
     use Traits\ApplicationDirsTrait;
 
+    /**
+     * @var array
+     */
     private $coreServiceProviders = [
         ConfigServiceProvider::class,
         RoutingServiceProvider::class
     ];
 
+    /**
+     * @var array
+     */
     private $bootedServiceProviders = [];
 
     public function __construct($baseDir)
