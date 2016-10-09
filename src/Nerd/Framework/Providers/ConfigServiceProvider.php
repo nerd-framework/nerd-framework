@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: roman
- * Date: 08.10.16
- * Time: 23:04
- */
 
 namespace Nerd\Framework\Providers;
-
 
 use Nerd\Framework\Services\ConfigService;
 
