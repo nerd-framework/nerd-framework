@@ -11,4 +11,11 @@ class RoutingServiceProvider extends ServiceProvider
     {
         $this->getApplication()->singleton(RouterContract::class, Router::class);
     }
+
+    public static function provides()
+    {
+        return [
+            RouterContract::class
+        ];
+    }
 }

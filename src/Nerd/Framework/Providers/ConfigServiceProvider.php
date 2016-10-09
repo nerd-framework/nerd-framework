@@ -12,4 +12,11 @@ class ConfigServiceProvider extends ServiceProvider
         $service = new ConfigService($configDir);
         $this->getApplication()->bind(ConfigService::class, $service);
     }
+
+    public static function provides()
+    {
+        return [
+            ConfigService::class
+        ];
+    }
 }
