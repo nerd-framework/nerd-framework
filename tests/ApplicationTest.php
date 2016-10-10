@@ -43,6 +43,6 @@ class ApplicationTest extends TestCase
 
     public function testRouting()
     {
-         $routingService = $this->app->get(RouterContract::class);
+        $routingService = $this->app->get(RouterContract::class);
     }
 }
