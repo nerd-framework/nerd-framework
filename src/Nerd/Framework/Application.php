@@ -111,12 +111,24 @@ class Application extends Container implements ApplicationContract
      */
     public function get($id)
     {
-        if (!$this->has($id) && $this->isProvided($id)) {
+        if (!parent::has($id) && $this->isServiceProvided($id)) {
             $this->requireService($id);
         }
         return parent::get($id);
     }
 
+    /**
+     * @param string $id
+     * @return bool
+     */
+    public function has($id)
+    {
+        return parent::has($id) || $this->isServiceProvided($id);
+    }
+
+    /**
+     * Load Service Providers from Config File
+     */
     public function loadServiceProviders()
     {
         $providerClasses = $this->config("core.serviceProviders", []);

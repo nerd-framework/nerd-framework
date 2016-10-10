@@ -2,6 +2,8 @@
 
 namespace Nerd\Framework\Traits;
 
+use Nerd\Framework\Exceptions\ApplicationException;
+use Nerd\Framework\Providers\ServiceProvider;
 use Nerd\Framework\Services\ServiceProviderContract;
 
 trait ServiceProviderTrait
@@ -18,9 +20,16 @@ trait ServiceProviderTrait
 
     /**
      * @param ServiceProviderContract $serviceProviderClass
+     * @throws ApplicationException
      */
     public function registerServiceProvider($serviceProviderClass)
     {
+        if (!$this->isValidServiceProviderClass($serviceProviderClass)) {
+            throw new ApplicationException(
+                "Class '$serviceProviderClass' must be instance of ServiceProvider class."
+            );
+        }
+
         $providedServices = $serviceProviderClass::provides();
 
         $index = sizeof($this->serviceProviderClasses);
@@ -48,8 +57,19 @@ trait ServiceProviderTrait
      * @param string $service
      * @return bool
      */
-    public function isProvided($service)
+    public function isServiceProvided($service)
     {
         return array_key_exists($service, $this->servicesProvidedByProviders);
+    }
+
+    private function isValidServiceProviderClass($serviceProviderClass)
+    {
+        if (!class_exists($serviceProviderClass)) {
+            return false;
+        }
+
+        $reflection = new \ReflectionClass($serviceProviderClass);
+
+        return $reflection->isSubclassOf(ServiceProvider::class);
     }
 }

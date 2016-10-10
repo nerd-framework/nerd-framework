@@ -6,7 +6,6 @@ use Nerd\Framework\Application;
 use Nerd\Framework\Http\ResponseContract;
 use PHPUnit\Framework\TestCase;
 use tests\fixtures\TestRequest;
-use tests\fixtures\services\TestResponse;
 
 class ApplicationTest extends TestCase
 {
