@@ -67,6 +67,7 @@ class ApplicationTest extends TestCase
             return $this->baseDir . DIRECTORY_SEPARATOR . $dir;
         };
 
+        $this->assertEquals($baseDir('app'), $this->app->getApplicationDir());
         $this->assertEquals($baseDir('config'), $this->app->getConfigDir());
         $this->assertEquals($baseDir('env'), $this->app->getEnvDir());
         $this->assertEquals($baseDir('resources'), $this->app->getResourcesDir());
