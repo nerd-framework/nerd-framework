@@ -6,7 +6,7 @@ use Nerd\Framework\Application;
 use Nerd\Framework\Http\ResponseContract;
 use PHPUnit\Framework\TestCase;
 use tests\fixtures\TestRequest;
-use tests\fixtures\TestResponse;
+use tests\fixtures\services\TestResponse;
 
 class ApplicationTest extends TestCase
 {
@@ -46,15 +46,30 @@ class ApplicationTest extends TestCase
     {
         $request = TestRequest::make("GET", "/");
 
-        /**
-         * @var TestResponse $response
-         */
         $response = $this->app->handle($request);
 
         $this->assertInstanceOf(ResponseContract::class, $response);
+        $this->assertEquals("/", $response->getOriginal());
+    }
 
-        $this->assertFalse($response->isPrepared());
+    public function testResponseConverting()
+    {
+        $request = TestRequest::make("GET", "/foo");
 
-        $this->assertFalse($response->isRendered());
+        $response = $this->app->handle($request);
+
+        $this->assertInstanceOf(ResponseContract::class, $response);
+        $this->assertEquals("hello", $response->getOriginal());
+    }
+
+    public function testConfigDirectories()
+    {
+        $baseDir = function ($dir) {
+            return $this->baseDir . DIRECTORY_SEPARATOR . $dir;
+        };
+
+        $this->assertEquals($baseDir('config'), $this->app->getConfigDir());
+        $this->assertEquals($baseDir('env'), $this->app->getEnvDir());
+        $this->assertEquals($baseDir('resources'), $this->app->getResourcesDir());
     }
 }
