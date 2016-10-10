@@ -4,4 +4,4 @@
 [![Coverage Status](https://coveralls.io/repos/github/nerd-framework/nerd-framework/badge.svg?branch=master)](https://coveralls.io/github/nerd-framework/nerd-framework?branch=master)
 [![StyleCI](https://styleci.io/repos/70129472/shield?branch=master)](https://styleci.io/repos/70129472)
 
-Core component of Nerd Framework
+Main Component of Nerd Framework
