@@ -14,8 +14,6 @@ class RoutingServiceProvider extends ServiceProvider
 
     public static function provides()
     {
-        return [
-            RouterContract::class
-        ];
+        return [RouterContract::class];
     }
 }

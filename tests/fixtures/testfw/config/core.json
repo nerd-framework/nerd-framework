@@ -1,0 +1,5 @@
+{
+  "serviceProviders": [
+    "\\Nerd\\Framework\\Providers\\RoutingServiceProvider"
+  ]
+}

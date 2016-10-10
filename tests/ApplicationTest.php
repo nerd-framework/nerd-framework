@@ -10,14 +10,24 @@ use PHPUnit\Framework\TestCase;
 class ApplicationTest extends TestCase
 {
     /**
+     * @var string
+     */
+    private $baseDir;
+
+    /**
+     * @var string
+     */
+    private $env = "test";
+
+    /**
      * @var Application
      */
     private $app;
 
     public function setUp()
     {
-        $testFrameworkBaseDir = implode(DIRECTORY_SEPARATOR, [__DIR__, 'fixtures', 'testfw']);
-        $this->app = new Application($testFrameworkBaseDir);
+        $this->baseDir = implode(DIRECTORY_SEPARATOR, [__DIR__, 'fixtures', 'testfw']);
+        $this->app = new Application($this->baseDir, $this->env);
     }
 
     public function testInstance()
@@ -25,23 +35,14 @@ class ApplicationTest extends TestCase
         $this->assertInstanceOf(Application::class, $this->app);
     }
 
-    public function testConfigService()
+    public function testConfig()
     {
-        /**
-         * @var ConfigService $configService
-         */
-        $configService = $this->app->get(ConfigService::class);
-
-        $this->assertEquals('test', $configService->getSetting('app.env'));
+        $this->assertEquals('test', $this->app->config('app.env'));
+        $this->assertEquals('bar', $this->app->config('app.interpolate'));
     }
 
-    public function testRoutingService()
+    public function testRouting()
     {
-        /**
-         * @var RouterContract $routingService
-         */
-        $routingService = $this->app->get(RouterContract::class);
-
-        $this->assertInstanceOf(RouterContract::class, $routingService);
+         $routingService = $this->app->get(RouterContract::class);
     }
 }

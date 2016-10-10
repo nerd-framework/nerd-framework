@@ -15,29 +15,44 @@ use Nerd\Framework\Services\ServiceProviderContract;
 class Application extends Container implements ApplicationContract
 {
     use Traits\ApplicationDirsTrait;
+    use Traits\ConfigurationTrait;
+    use Traits\ServiceProviderTrait;
 
     /**
-     * @var array
+     * @var string
      */
-    private $coreServiceProviders = [
-        ConfigServiceProvider::class,
-        RoutingServiceProvider::class
-    ];
+    private $environment;
 
     /**
-     * @var array
+     * @param string $baseDir
+     * @param string $environment
      */
-    private $bootedServiceProviders = [];
-
-    public function __construct($baseDir)
+    public function __construct($baseDir, $environment)
     {
         $this->setBaseDir($baseDir);
-        $this->bootServiceProviders();
+        $this->setEnv($environment);
+
+        $this->loadEnv();
+        $this->loadConfig();
+
+        $this->loadServiceProviders();
     }
 
-    private function bootServiceProviders()
+    /**
+     * @param $environment
+     * @return void
+     */
+    private function setEnv($environment)
     {
-        array_walk($this->coreServiceProviders, [$this, 'bootServiceProvider']);
+        $this->environment = $environment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEnv()
+    {
+        return $this->environment;
     }
 
     /**
@@ -90,20 +105,24 @@ class Application extends Container implements ApplicationContract
         return $handler->handle($exception);
     }
 
-    protected function bootServiceProvider($serviceProvider)
+    /**
+     * @param string $id
+     * @return object
+     */
+    public function get($id)
     {
-        // Skip service provider if it already booted
-        if (array_key_exists($serviceProvider, $this->bootedServiceProviders)) {
-            return;
+        if (!$this->has($id) && $this->isProvided($id)) {
+            $this->requireService($id);
         }
+        return parent::get($id);
+    }
 
-        /**
-         * @var ServiceProviderContract $instance
-         */
-        $instance = new $serviceProvider($this);
-        $instance->register();
+    public function loadServiceProviders()
+    {
+        $providerClasses = $this->config("core.serviceProviders", []);
 
-        // Mark current service provider as booted
-        $this->bootedServiceProviders[$serviceProvider] = true;
+        array_walk($providerClasses, function ($class) {
+            $this->registerServiceProvider($class);
+        });
     }
 }
