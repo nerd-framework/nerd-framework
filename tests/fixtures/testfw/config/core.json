@@ -1,5 +1,5 @@
 {
   "serviceProviders": [
-    "\\Nerd\\Framework\\Providers\\RoutingServiceProvider"
+    "\\tests\\fixtures\\TestRoutingServiceProvider"
   ]
 }

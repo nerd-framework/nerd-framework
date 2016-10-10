@@ -3,9 +3,10 @@
 namespace tests;
 
 use Nerd\Framework\Application;
-use Nerd\Framework\Routing\RouterContract;
-use Nerd\Framework\Services\ConfigService;
+use Nerd\Framework\Http\ResponseContract;
 use PHPUnit\Framework\TestCase;
+use tests\fixtures\TestRequest;
+use tests\fixtures\TestResponse;
 
 class ApplicationTest extends TestCase
 {
@@ -43,6 +44,17 @@ class ApplicationTest extends TestCase
 
     public function testRouting()
     {
-        $routingService = $this->app->get(RouterContract::class);
+        $request = TestRequest::make("GET", "/");
+
+        /**
+         * @var TestResponse $response
+         */
+        $response = $this->app->handle($request);
+
+        $this->assertInstanceOf(ResponseContract::class, $response);
+
+        $this->assertFalse($response->isPrepared());
+
+        $this->assertFalse($response->isRendered());
     }
 }
