@@ -77,7 +77,7 @@ trait ConfigurationTrait
      */
     public function env($key, $default = null)
     {
-        return getValue($this->env, $key, $default);
+        return getValue(array_merge($_ENV, $this->env), $key, $default);
     }
 
     /**
