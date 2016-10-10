@@ -45,20 +45,6 @@ class ServiceProvidersTest extends TestCase
     }
 
     /**
-     * @expectedException \Exception
-     */
-    public function testIncorrectServiceProvider()
-    {
-        $this->assertFalse($this->app->has('bad'));
-
-        $this->app->registerServiceProvider(FooServiceProvider::class);
-
-        $this->assertTrue($this->app->has('bad'));
-
-        $this->app->get('bad');
-    }
-
-    /**
      * @expectedException \Nerd\Framework\Exceptions\ApplicationException
      */
     public function testIncorrectServiceProviderClass()

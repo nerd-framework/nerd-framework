@@ -13,6 +13,6 @@ class FooServiceProvider extends ServiceProvider
 
     public static function provides()
     {
-        return ["foo", "bad"];
+        return ["foo"];
     }
 }
