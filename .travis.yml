@@ -10,6 +10,3 @@ script: make lint test
 
 after_success:
   - travis_retry composer exec 'coveralls -v'
-
-notifications:
-  slack: radioteria:ZqNvcH9U10QXgCWfTXewf3Mf
