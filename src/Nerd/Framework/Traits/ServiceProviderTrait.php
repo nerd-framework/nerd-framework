@@ -64,10 +64,6 @@ trait ServiceProviderTrait
 
     private function isValidServiceProviderClass($serviceProviderClass)
     {
-        if (!class_exists($serviceProviderClass)) {
-            return false;
-        }
-
         $reflection = new \ReflectionClass($serviceProviderClass);
 
         return $reflection->isSubclassOf(ServiceProvider::class);
