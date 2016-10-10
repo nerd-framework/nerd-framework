@@ -33,17 +33,29 @@ class ServiceProvidersTest extends TestCase
 
     public function testServiceProviderRegistration()
     {
-        // At start we assert, that service foo doesn't exist
         $this->assertFalse($this->app->has('foo'));
-        // Then will register foo service provider class
+
         $this->app->registerServiceProvider(FooServiceProvider::class);
-        // At next we see, that service foo exists
+
         $this->assertTrue($this->app->has('foo'));
 
-        // Let's play with that service
         $fooService = $this->app->get('foo');
         $this->assertInstanceOf(FooService::class, $fooService);
         $this->assertEquals('bar', $fooService->foo());
+    }
+
+    /**
+     * @expectedException \Exception
+     */
+    public function testIncorrectServiceProvider()
+    {
+        $this->assertFalse($this->app->has('bad'));
+
+        $this->app->registerServiceProvider(FooServiceProvider::class);
+
+        $this->assertTrue($this->app->has('bad'));
+
+        $this->app->get('bad');
     }
 
     /**

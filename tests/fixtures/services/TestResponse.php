@@ -41,7 +41,7 @@ class TestResponse implements ResponseContract
     /**
      * @return mixed
      */
-    public function getOriginal()
+    public function unpack()
     {
         return $this->original;
     }

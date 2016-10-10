@@ -13,6 +13,10 @@ class TestRoutingService implements RouterContract
             return new TestResponse("/");
         }
 
+        if ($request->getPath() == 'error') {
+            throw new \Exception("Exception thrown inside controller");
+        }
+
         return 'hello';
     }
 }

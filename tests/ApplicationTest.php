@@ -48,17 +48,30 @@ class ApplicationTest extends TestCase
         $response = $this->app->handle($request);
 
         $this->assertInstanceOf(ResponseContract::class, $response);
-        $this->assertEquals("/", $response->getOriginal());
+        $this->assertEquals("/", $response->unpack());
     }
 
     public function testResponseConverting()
     {
-        $request = TestRequest::make("GET", "/foo");
+        $request = TestRequest::make("GET", "foo");
 
         $response = $this->app->handle($request);
 
         $this->assertInstanceOf(ResponseContract::class, $response);
-        $this->assertEquals("hello", $response->getOriginal());
+        $this->assertEquals("hello", $response->unpack());
+    }
+
+    public function testExceptionHandling()
+    {
+        $request = TestRequest::make("GET", "error");
+
+        $response = $this->app->handle($request);
+
+        $this->assertInstanceOf(ResponseContract::class, $response);
+
+        $content = $response->unpack();
+
+        $this->assertInstanceOf(\Exception::class, $content);
     }
 
     public function testConfigDirectories()

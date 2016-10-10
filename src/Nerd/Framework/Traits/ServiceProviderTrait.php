@@ -26,7 +26,7 @@ trait ServiceProviderTrait
     {
         if (!$this->isValidServiceProviderClass($serviceProviderClass)) {
             throw new ApplicationException(
-                "Class '$serviceProviderClass' must be instance of ServiceProvider class."
+                "Class \"$serviceProviderClass\" must be instance of ServiceProvider class."
             );
         }
 
@@ -62,6 +62,10 @@ trait ServiceProviderTrait
         return array_key_exists($service, $this->servicesProvidedByProviders);
     }
 
+    /**
+     * @param $serviceProviderClass
+     * @return bool
+     */
     private function isValidServiceProviderClass($serviceProviderClass)
     {
         $reflection = new \ReflectionClass($serviceProviderClass);
