@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b6763a6d5ecd5d7edebcc7943d19f1ae",
-    "content-hash": "254ce8220f1f69e1e8d21fbab4532e21",
+    "hash": "3b692bacebc79c5de349e420a96d1f7f",
+    "content-hash": "0bd253ba8216dce5b9b01c68ad7549cf",
     "packages": [
         {
             "name": "nerd-components/config",
@@ -48,50 +48,6 @@
             ],
             "description": "Simple stateless configuration manager",
             "time": "2016-10-08 20:14:42"
-        },
-        {
-            "name": "nerd-components/lambda",
-            "version": "v2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nerd-components/lambda.git",
-                "reference": "d966ea6141695946278e10101684af57e2ad0e77"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nerd-components/lambda/zipball/d966ea6141695946278e10101684af57e2ad0e77",
-                "reference": "d966ea6141695946278e10101684af57e2ad0e77",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^5.3",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "~2.6"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "tests\\": "tests"
-                },
-                "files": [
-                    "src/Lambda.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Roman Lakhtadyr",
-                    "email": "roman.lakhtadyr@gmail.com"
-                }
-            ],
-            "description": "Lambda-function generator",
-            "time": "2016-10-05 06:41:07"
         },
         {
             "name": "nerd-framework/nerd-container",
@@ -215,47 +171,6 @@
             ],
             "description": "HTTP Request and Response for Nerd Framework",
             "time": "2016-10-13 18:00:00"
-        },
-        {
-            "name": "nerd-framework/nerd-routing",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/nerd-framework/nerd-routing.git",
-                "reference": "2da21bc61dc0f2720ae137fca062e70b386583b0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-routing/zipball/2da21bc61dc0f2720ae137fca062e70b386583b0",
-                "reference": "2da21bc61dc0f2720ae137fca062e70b386583b0",
-                "shasum": ""
-            },
-            "require": {
-                "nerd-components/lambda": "^2.0",
-                "nerd-framework/nerd-contracts": "dev-master",
-                "php": ">=5.6"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~5.3",
-                "satooshi/php-coveralls": "^1.0",
-                "squizlabs/php_codesniffer": "2.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "": "src/",
-                    "tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Roman Lakhtadyr",
-                    "email": "roman.lakhtadyr@gmail.com"
-                }
-            ],
-            "description": "Router used in Nerd Framework",
-            "time": "2016-10-13 17:49:29"
         }
     ],
     "packages-dev": [
@@ -2232,7 +2147,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "nerd-framework/nerd-container": 20,
-        "nerd-framework/nerd-routing": 20,
         "nerd-framework/nerd-http": 20,
         "nerd-framework/nerd-contracts": 20,
         "nerd-components/config": 20

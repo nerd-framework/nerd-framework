@@ -18,7 +18,6 @@
   ],
   "require": {
     "nerd-framework/nerd-container": "dev-master",
-    "nerd-framework/nerd-routing": "dev-master",
     "nerd-framework/nerd-http": "dev-master",
     "nerd-framework/nerd-contracts": "dev-master",
     "nerd-components/config": "dev-master"
