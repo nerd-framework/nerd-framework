@@ -3,7 +3,7 @@
 namespace tests\fixtures\services;
 
 use Nerd\Framework\Http\Services\ResponseServiceContract;
-use Nerd\Framework\Providers\ServiceProvider;
+use Nerd\Framework\ServiceProvider;
 
 class TestResponseServiceProvider extends ServiceProvider
 {

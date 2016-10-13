@@ -3,7 +3,7 @@
 namespace Nerd\Framework\Traits;
 
 use Nerd\Framework\Exceptions\ApplicationException;
-use Nerd\Framework\Providers\ServiceProvider;
+use Nerd\Framework\ServiceProvider;
 use Nerd\Framework\Services\ServiceProviderContract;
 
 trait ServiceProviderTrait

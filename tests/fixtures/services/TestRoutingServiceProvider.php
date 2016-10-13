@@ -2,7 +2,7 @@
 
 namespace tests\fixtures\services;
 
-use Nerd\Framework\Providers\ServiceProvider;
+use Nerd\Framework\ServiceProvider;
 use Nerd\Framework\Routing\RouterContract;
 
 class TestRoutingServiceProvider extends ServiceProvider

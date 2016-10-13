@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3b692bacebc79c5de349e420a96d1f7f",
-    "content-hash": "0bd253ba8216dce5b9b01c68ad7549cf",
+    "hash": "9531e92c52d9d345304f4077a1580dc8",
+    "content-hash": "f6d2c91e3475810af5616a3a26dda48b",
     "packages": [
         {
             "name": "nerd-components/config",
@@ -171,6 +171,48 @@
             ],
             "description": "HTTP Request and Response for Nerd Framework",
             "time": "2016-10-13 18:00:00"
+        },
+        {
+            "name": "nerd-framework/nerd-service-provider",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nerd-framework/nerd-service-provider.git",
+                "reference": "d63d3a8a55b7bf4035d99d6364cceecda2270a80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-service-provider/zipball/d63d3a8a55b7bf4035d99d6364cceecda2270a80",
+                "reference": "d63d3a8a55b7bf4035d99d6364cceecda2270a80",
+                "shasum": ""
+            },
+            "require": {
+                "nerd-framework/nerd-contracts": "dev-master"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.6",
+                "satooshi/php-coveralls": "^1.0",
+                "squizlabs/php_codesniffer": "^2.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": "src/",
+                    "tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Lakhtadyr",
+                    "email": "roman.lakhtadyr@gmail.com"
+                }
+            ],
+            "description": "Component used to create service providers",
+            "time": "2016-10-13 20:37:17"
         }
     ],
     "packages-dev": [
@@ -2149,7 +2191,8 @@
         "nerd-framework/nerd-container": 20,
         "nerd-framework/nerd-http": 20,
         "nerd-framework/nerd-contracts": 20,
-        "nerd-components/config": 20
+        "nerd-components/config": 20,
+        "nerd-framework/nerd-service-provider": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

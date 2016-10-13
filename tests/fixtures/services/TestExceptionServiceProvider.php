@@ -3,7 +3,7 @@
 namespace tests\fixtures\services;
 
 use Nerd\Framework\Http\Services\ExceptionServiceContract;
-use Nerd\Framework\Providers\ServiceProvider;
+use Nerd\Framework\ServiceProvider;
 
 class TestExceptionServiceProvider extends ServiceProvider
 {

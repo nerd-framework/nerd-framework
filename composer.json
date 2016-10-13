@@ -20,7 +20,8 @@
     "nerd-framework/nerd-container": "dev-master",
     "nerd-framework/nerd-http": "dev-master",
     "nerd-framework/nerd-contracts": "dev-master",
-    "nerd-components/config": "dev-master"
+    "nerd-components/config": "dev-master",
+    "nerd-framework/nerd-service-provider": "dev-master"
   },
   "autoload": {
     "psr-4": {

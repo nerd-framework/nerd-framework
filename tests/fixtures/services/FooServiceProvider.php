@@ -2,7 +2,7 @@
 
 namespace tests\fixtures\services;
 
-use Nerd\Framework\Providers\ServiceProvider;
+use Nerd\Framework\ServiceProvider;
 
 class FooServiceProvider extends ServiceProvider
 {
