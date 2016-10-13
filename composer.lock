@@ -55,12 +55,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-container.git",
-                "reference": "77d54670df76737d207e5319a2fd2988429afd6c"
+                "reference": "5f73061b33f8c91a6c0003ae68704e2f5df9d3fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/77d54670df76737d207e5319a2fd2988429afd6c",
-                "reference": "77d54670df76737d207e5319a2fd2988429afd6c",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/5f73061b33f8c91a6c0003ae68704e2f5df9d3fc",
+                "reference": "5f73061b33f8c91a6c0003ae68704e2f5df9d3fc",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 }
             ],
             "description": "Lightweight IoC container with dependency injection",
-            "time": "2016-10-11 14:03:49"
+            "time": "2016-10-13 21:25:10"
         },
         {
             "name": "nerd-framework/nerd-contracts",
@@ -95,12 +95,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-contracts.git",
-                "reference": "fec8e1b2c9b9f31c925c2d582d1c2acedee2a819"
+                "reference": "1d9db11de6edc61f16d5e86e5fc1453b984e58f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/fec8e1b2c9b9f31c925c2d582d1c2acedee2a819",
-                "reference": "fec8e1b2c9b9f31c925c2d582d1c2acedee2a819",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/1d9db11de6edc61f16d5e86e5fc1453b984e58f4",
+                "reference": "1d9db11de6edc61f16d5e86e5fc1453b984e58f4",
                 "shasum": ""
             },
             "require-dev": {
@@ -125,7 +125,7 @@
                 }
             ],
             "description": "Framework contracts used in Nerd Framework",
-            "time": "2016-10-13 20:34:45"
+            "time": "2016-10-13 21:10:07"
         },
         {
             "name": "nerd-framework/nerd-http",
