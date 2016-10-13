@@ -96,9 +96,14 @@ class Application extends Container implements ApplicationContract
     /**
      * @param \Exception $exception
      * @return ResponseContract
+     * @throws \Exception
      */
     private function handleException(\Exception $exception)
     {
+        if (!$this->has(ExceptionServiceContract::class)) {
+            throw $exception;
+        }
+
         $handler = $this->get(ExceptionServiceContract::class);
 
         return $handler->handle($exception);
