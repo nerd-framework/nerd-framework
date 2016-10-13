@@ -2,9 +2,8 @@
 
 namespace tests\fixtures\services;
 
-use Nerd\Framework\Http\ResponseContract;
-use Nerd\Framework\Http\ResponseServiceContract;
-use tests\fixtures\services\TestResponse;
+use Nerd\Framework\Http\Response\ResponseContract;
+use Nerd\Framework\Http\Services\ResponseServiceContract;
 
 class TestResponseService implements ResponseServiceContract
 {

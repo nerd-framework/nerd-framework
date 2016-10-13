@@ -3,14 +3,11 @@
 namespace Nerd\Framework;
 
 use Nerd\Framework\Container\Container;
-use Nerd\Framework\Http\ExceptionServiceContract;
-use Nerd\Framework\Http\RequestContract;
-use Nerd\Framework\Http\ResponseContract;
-use Nerd\Framework\Http\ResponseServiceContract;
-use Nerd\Framework\Providers\ConfigServiceProvider;
-use Nerd\Framework\Providers\RoutingServiceProvider;
+use Nerd\Framework\Http\Services\ExceptionServiceContract;
+use Nerd\Framework\Http\Request\RequestContract;
+use Nerd\Framework\Http\Response\ResponseContract;
+use Nerd\Framework\Http\Services\ResponseServiceContract;
 use Nerd\Framework\Routing\RouterContract;
-use Nerd\Framework\Services\ServiceProviderContract;
 
 class Application extends Container implements ApplicationContract
 {

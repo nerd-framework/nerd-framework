@@ -2,7 +2,7 @@
 
 namespace tests\fixtures\services;
 
-use Nerd\Framework\Http\RequestContract;
+use Nerd\Framework\Http\Request\RequestContract;
 use Nerd\Framework\Routing\RouterContract;
 
 class TestRoutingService implements RouterContract

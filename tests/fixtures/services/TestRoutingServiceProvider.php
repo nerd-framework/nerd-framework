@@ -4,7 +4,6 @@ namespace tests\fixtures\services;
 
 use Nerd\Framework\Providers\ServiceProvider;
 use Nerd\Framework\Routing\RouterContract;
-use tests\fixtures\services\TestRoutingService;
 
 class TestRoutingServiceProvider extends ServiceProvider
 {

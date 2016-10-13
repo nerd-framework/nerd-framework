@@ -2,7 +2,7 @@
 
 namespace tests\fixtures\services;
 
-use Nerd\Framework\Http\ResponseServiceContract;
+use Nerd\Framework\Http\Services\ResponseServiceContract;
 use Nerd\Framework\Providers\ServiceProvider;
 
 class TestResponseServiceProvider extends ServiceProvider

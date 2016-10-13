@@ -99,12 +99,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-container.git",
-                "reference": "8188391f35df6d3d6577a5df8512223df7039cb6"
+                "reference": "77d54670df76737d207e5319a2fd2988429afd6c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/8188391f35df6d3d6577a5df8512223df7039cb6",
-                "reference": "8188391f35df6d3d6577a5df8512223df7039cb6",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-container/zipball/77d54670df76737d207e5319a2fd2988429afd6c",
+                "reference": "77d54670df76737d207e5319a2fd2988429afd6c",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 }
             ],
             "description": "Lightweight IoC container with dependency injection",
-            "time": "2016-10-09 17:09:16"
+            "time": "2016-10-11 14:03:49"
         },
         {
             "name": "nerd-framework/nerd-contracts",
@@ -139,12 +139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-contracts.git",
-                "reference": "421df0fd70c6e10a560f7fa4c1b9e98c62838a83"
+                "reference": "c56621db26a7f01e0c46374c0d347bd8d39b8976"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/421df0fd70c6e10a560f7fa4c1b9e98c62838a83",
-                "reference": "421df0fd70c6e10a560f7fa4c1b9e98c62838a83",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-contracts/zipball/c56621db26a7f01e0c46374c0d347bd8d39b8976",
+                "reference": "c56621db26a7f01e0c46374c0d347bd8d39b8976",
                 "shasum": ""
             },
             "require-dev": {
@@ -168,8 +168,8 @@
                     "email": "roman.lakhtadyr@gmail.com"
                 }
             ],
-            "description": "Contracts used in Nerd Framework",
-            "time": "2016-10-09 18:59:20"
+            "description": "Framework contracts used in Nerd Framework",
+            "time": "2016-10-13 17:53:51"
         },
         {
             "name": "nerd-framework/nerd-http",
@@ -177,12 +177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-http.git",
-                "reference": "418e33e017c8294f843fe693d5fe7b5ab5ddd39f"
+                "reference": "d4c411ee326dcde74c854983e1ed0053b9206d63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-http/zipball/418e33e017c8294f843fe693d5fe7b5ab5ddd39f",
-                "reference": "418e33e017c8294f843fe693d5fe7b5ab5ddd39f",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-http/zipball/d4c411ee326dcde74c854983e1ed0053b9206d63",
+                "reference": "d4c411ee326dcde74c854983e1ed0053b9206d63",
                 "shasum": ""
             },
             "require": {
@@ -190,6 +190,7 @@
                 "php": ">=5.6"
             },
             "require-dev": {
+                "mikey179/vfsstream": "^1.6",
                 "phpunit/phpunit": "^5.5",
                 "satooshi/php-coveralls": "^1.0",
                 "squizlabs/php_codesniffer": "^2.7"
@@ -198,7 +199,8 @@
             "autoload": {
                 "files": [],
                 "psr-4": {
-                    "": "src/"
+                    "": "src/",
+                    "tests\\": "tests/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -212,7 +214,7 @@
                 }
             ],
             "description": "HTTP Request and Response for Nerd Framework",
-            "time": "2016-10-06 13:10:30"
+            "time": "2016-10-13 18:00:00"
         },
         {
             "name": "nerd-framework/nerd-routing",
@@ -220,12 +222,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nerd-framework/nerd-routing.git",
-                "reference": "03d044181f91a4b4428181a29a85a7ee8a803cfd"
+                "reference": "2da21bc61dc0f2720ae137fca062e70b386583b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nerd-framework/nerd-routing/zipball/03d044181f91a4b4428181a29a85a7ee8a803cfd",
-                "reference": "03d044181f91a4b4428181a29a85a7ee8a803cfd",
+                "url": "https://api.github.com/repos/nerd-framework/nerd-routing/zipball/2da21bc61dc0f2720ae137fca062e70b386583b0",
+                "reference": "2da21bc61dc0f2720ae137fca062e70b386583b0",
                 "shasum": ""
             },
             "require": {
@@ -243,10 +245,7 @@
                 "psr-4": {
                     "": "src/",
                     "tests\\": "tests/"
-                },
-                "files": [
-                    "src/Nerd/Framework/Routing.php"
-                ]
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "authors": [
@@ -256,7 +255,7 @@
                 }
             ],
             "description": "Router used in Nerd Framework",
-            "time": "2016-10-06 13:17:35"
+            "time": "2016-10-13 17:49:29"
         }
     ],
     "packages-dev": [
@@ -1047,16 +1046,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0"
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/5277094ed527a1c4477177d102fe4c53551953e0",
-                "reference": "5277094ed527a1c4477177d102fe4c53551953e0",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
                 "shasum": ""
             },
             "require": {
@@ -1090,7 +1089,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-09-19 16:02:08"
+            "time": "2016-10-10 12:19:37"
         },
         {
             "name": "satooshi/php-coveralls",

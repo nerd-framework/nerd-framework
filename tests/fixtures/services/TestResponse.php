@@ -2,9 +2,9 @@
 
 namespace tests\fixtures\services;
 
-use Nerd\Framework\Http\OutputContract;
-use Nerd\Framework\Http\RequestContract;
-use Nerd\Framework\Http\ResponseContract;
+use Nerd\Framework\Http\IO\OutputContract;
+use Nerd\Framework\Http\Request\RequestContract;
+use Nerd\Framework\Http\Response\ResponseContract;
 
 class TestResponse implements ResponseContract
 {
@@ -44,5 +44,12 @@ class TestResponse implements ResponseContract
     public function unpack()
     {
         return $this->original;
+    }
+
+    /**
+     * Close HTTP Response
+     */
+    public function close()
+    {
     }
 }

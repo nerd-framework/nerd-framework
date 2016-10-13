@@ -3,9 +3,9 @@
 namespace tests;
 
 use Nerd\Framework\Application;
-use Nerd\Framework\Http\ResponseContract;
+use Nerd\Framework\Http\Request\Request;
+use Nerd\Framework\Http\Response\ResponseContract;
 use PHPUnit\Framework\TestCase;
-use tests\fixtures\TestRequest;
 
 class ApplicationTest extends TestCase
 {
@@ -43,7 +43,7 @@ class ApplicationTest extends TestCase
 
     public function testRouting()
     {
-        $request = TestRequest::make("GET", "/");
+        $request = Request::create("/");
 
         $response = $this->app->handle($request);
 
@@ -53,7 +53,7 @@ class ApplicationTest extends TestCase
 
     public function testResponseConverting()
     {
-        $request = TestRequest::make("GET", "foo");
+        $request = Request::create("foo");
 
         $response = $this->app->handle($request);
 
@@ -63,7 +63,7 @@ class ApplicationTest extends TestCase
 
     public function testExceptionHandling()
     {
-        $request = TestRequest::make("GET", "error");
+        $request = Request::create("error");
 
         $response = $this->app->handle($request);
 

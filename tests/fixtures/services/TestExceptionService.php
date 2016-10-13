@@ -2,8 +2,8 @@
 
 namespace tests\fixtures\services;
 
-use Nerd\Framework\Http\ExceptionServiceContract;
-use Nerd\Framework\Http\ResponseContract;
+use Nerd\Framework\Http\Services\ExceptionServiceContract;
+use Nerd\Framework\Http\Response\ResponseContract;
 
 class TestExceptionService implements ExceptionServiceContract
 {
