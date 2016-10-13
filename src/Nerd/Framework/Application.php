@@ -29,6 +29,8 @@ class Application extends Container implements ApplicationContract
         $this->setBaseDir($baseDir);
         $this->setEnv($environment);
 
+        $this->bind(Application::class, $this);
+
         $this->loadEnv();
         $this->loadConfig();
 
