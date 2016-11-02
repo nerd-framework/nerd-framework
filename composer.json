@@ -17,6 +17,7 @@
     }
   ],
   "require": {
+    "php": "^7.0",
     "nerd-framework/nerd-container": "dev-master",
     "nerd-framework/nerd-http": "dev-master",
     "nerd-framework/nerd-contracts": "dev-master",
