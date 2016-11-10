@@ -35,6 +35,8 @@ class Application extends Container implements ApplicationContract
         $this->loadConfig();
 
         $this->loadServiceProviders();
+
+        $this->loadServices();
     }
 
     /**
@@ -140,5 +142,28 @@ class Application extends Container implements ApplicationContract
         array_walk($providerClasses, function ($class) {
             $this->registerServiceProvider($class);
         });
+    }
+
+    public function loadServices()
+    {
+        $services = $this->config("core.services", []);
+
+        array_walk($services, function ($class) {
+            $subclasses = $this->getSubClasses($class);
+            foreach ($subclasses as $cls) {
+                $this->singleton($cls, $class);
+            }
+        });
+    }
+
+    private function getSubClasses($class)
+    {
+        $result = [];
+        $reflection = new \ReflectionClass($class);
+        while (!is_null($reflection)) {
+            $result[] = $reflection->getName();
+            $reflection = $reflection->getParentClass();
+        }
+        return $result;
     }
 }
