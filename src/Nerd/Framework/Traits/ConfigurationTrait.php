@@ -95,10 +95,11 @@ trait ConfigurationTrait
      */
     protected function interpolate($value, $default = null)
     {
-        if (is_string($value) && preg_match('~^\${(.+)}$~', $value, $match)) {
-            return $this->env($match[1], $default);
+        if (!is_string($value)) {
+            return $value;
         }
-
-        return $value;
+        return preg_replace_callback('~\${\s*(.+?)\s*(?:\|\s*(.+?)\s*){0,1}\}~', function ($match) use ($default) {
+            return $this->env($match[1], array_key_exists(2, $match) ? $match[2] : $default);
+        }, $value);
     }
 }
