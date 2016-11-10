@@ -160,7 +160,7 @@ class Application extends Container implements ApplicationContract
     {
         $result = [];
         $reflection = new \ReflectionClass($class);
-        while (!is_null($reflection)) {
+        while (!is_bool($reflection)) {
             $result[] = $reflection->getName();
             $reflection = $reflection->getParentClass();
         }
