@@ -71,6 +71,14 @@ trait ConfigurationTrait
     }
 
     /**
+     * @param array $config
+     */
+    public function mergeConfig(array $config)
+    {
+        $this->config = array_merge_recursive($this->config, $config);
+    }
+
+    /**
      * @param string $key
      * @param mixed $default
      * @return mixed
