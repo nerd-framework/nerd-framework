@@ -38,7 +38,12 @@ class ApplicationTest extends TestCase
     public function testConfig()
     {
         $this->assertEquals('test', $this->app->config('app.env'));
+    }
+
+    public function testConfigInterpolation()
+    {
         $this->assertEquals('bar', $this->app->config('app.interpolate'));
+        $this->assertEquals('value + ps + alternative value', $this->app->config('app.other'));
     }
 
     public function testRouting()

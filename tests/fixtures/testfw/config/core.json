@@ -3,5 +3,8 @@
     "\\tests\\fixtures\\services\\TestRoutingServiceProvider",
     "\\tests\\fixtures\\services\\TestResponseServiceProvider",
     "\\tests\\fixtures\\services\\TestExceptionServiceProvider"
-  ]
+  ],
+  "services": {
+    "fooService": "\\tests\\fixtures\\services\\FooService"
+  }
 }

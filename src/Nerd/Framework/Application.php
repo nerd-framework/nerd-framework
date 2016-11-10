@@ -144,26 +144,15 @@ class Application extends Container implements ApplicationContract
         });
     }
 
+    /**
+     * Load Services from Config File
+     */
     public function loadServices()
     {
         $services = $this->config("core.services", []);
 
-        array_walk($services, function ($class) {
-            $subclasses = $this->getSubClasses($class);
-            foreach ($subclasses as $cls) {
-                $this->singleton($cls, $class);
-            }
-        });
-    }
-
-    private function getSubClasses($class)
-    {
-        $result = [];
-        $reflection = new \ReflectionClass($class);
-        while (!is_bool($reflection)) {
-            $result[] = $reflection->getName();
-            $reflection = $reflection->getParentClass();
+        foreach ($services as $id => $name) {
+            $this->singleton($id, $name);
         }
-        return $result;
     }
 }

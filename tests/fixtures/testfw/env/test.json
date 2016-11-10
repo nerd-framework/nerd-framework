@@ -1,4 +1,8 @@
 {
   "env": "test",
-  "foo": "bar"
+  "foo": "bar",
+  "another": "value",
+  "deep": {
+    "key": "ps"
+  }
 }

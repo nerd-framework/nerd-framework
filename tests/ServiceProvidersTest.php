@@ -44,6 +44,13 @@ class ServiceProvidersTest extends TestCase
         $this->assertEquals('bar', $fooService->foo());
     }
 
+    public function testServiceRegistration()
+    {
+        $resource = $this->app->get('fooService');
+
+        $this->assertInstanceOf(FooService::class, $resource);
+    }
+
     /**
      * @expectedException \Nerd\Framework\Exceptions\ApplicationException
      */
