@@ -14,7 +14,7 @@ class TestExceptionServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->getApp()->singleton('app.exception-handler', TestExceptionService::class);
+        $this->app->singleton('app.exception-handler', TestExceptionService::class);
     }
 
     public function provides()

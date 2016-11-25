@@ -13,7 +13,7 @@ class FooServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->getApp()->singleton("foo", FooService::class);
+        $this->app->singleton("foo", FooService::class);
     }
 
     public function provides()
