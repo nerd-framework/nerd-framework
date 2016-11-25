@@ -7,7 +7,6 @@ use Nerd\Framework\Http\Response\ResponseContract;
 
 class TestExceptionService implements ExceptionServiceContract
 {
-
     /**
      * Add new exception handler
      *

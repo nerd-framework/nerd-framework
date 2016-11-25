@@ -9,11 +9,21 @@ class TestResponseServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->getApplication()->singleton(ResponseServiceContract::class, TestResponseService::class);
+        $this->getApp()->singleton('app.response-converter', TestResponseService::class);
     }
 
-    public static function provides()
+    public function provides()
     {
-        return [ResponseServiceContract::class];
+        return ['app.response-converter'];
+    }
+
+    /**
+     * Boot the service provider.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
     }
 }

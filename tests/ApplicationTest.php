@@ -37,13 +37,7 @@ class ApplicationTest extends TestCase
 
     public function testConfig()
     {
-        $this->assertEquals('test', $this->app->config('app.env'));
-    }
-
-    public function testConfigInterpolation()
-    {
-        $this->assertEquals('bar', $this->app->config('app.interpolate'));
-        $this->assertEquals('value + ps + alternative value', $this->app->config('app.other'));
+        $this->assertEquals('bar', $this->app->config('app.foo'));
     }
 
     public function testRouting()
@@ -87,7 +81,7 @@ class ApplicationTest extends TestCase
 
         $this->assertEquals($baseDir('app'), $this->app->getApplicationDir());
         $this->assertEquals($baseDir('config'), $this->app->getConfigDir());
-        $this->assertEquals($baseDir('env'), $this->app->getEnvDir());
         $this->assertEquals($baseDir('resources'), $this->app->getResourcesDir());
+        $this->assertEquals($baseDir('storage'), $this->app->getStorageDir());
     }
 }

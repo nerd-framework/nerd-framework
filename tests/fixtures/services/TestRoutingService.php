@@ -28,7 +28,7 @@ class TestRoutingService implements RouterContract
      * @param mixed $data
      * @return RouterContract
      */
-    public function get($route, $action, $data = null)
+    public function get(string $route, callable $action, $data = null)
     {
         return $this;
     }
@@ -41,7 +41,7 @@ class TestRoutingService implements RouterContract
      * @param mixed $data
      * @return RouterContract
      */
-    public function post($route, $action, $data = null)
+    public function post(string $route, callable $action, $data = null)
     {
         return $this;
     }
@@ -54,7 +54,7 @@ class TestRoutingService implements RouterContract
      * @param mixed $data
      * @return RouterContract
      */
-    public function put($route, $action, $data = null)
+    public function put(string $route, callable $action, $data = null)
     {
         return $this;
     }
@@ -67,7 +67,7 @@ class TestRoutingService implements RouterContract
      * @param mixed $data
      * @return RouterContract
      */
-    public function delete($route, $action, $data = null)
+    public function delete(string $route, callable $action, $data = null)
     {
         return $this;
     }
@@ -78,7 +78,7 @@ class TestRoutingService implements RouterContract
      * @param null $data
      * @return RouterContract
      */
-    public function any($route, $action, $data = null)
+    public function any(string $route, callable $action, $data = null)
     {
         return $this;
     }
@@ -90,7 +90,7 @@ class TestRoutingService implements RouterContract
      * @param $middleware
      * @return RouterContract
      */
-    public function middleware($route, $middleware)
+    public function middleware(string $route, callable $middleware)
     {
         return $this;
     }
@@ -104,7 +104,7 @@ class TestRoutingService implements RouterContract
      * @param mixed $data
      * @return RouterContract
      */
-    public function add($methods, $regexp, $action, $data = null)
+    public function add(array $methods, string $regexp, callable $action, $data = null)
     {
         return $this;
     }

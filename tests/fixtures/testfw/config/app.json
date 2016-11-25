@@ -1,5 +1,0 @@
-{
-  "env": "test",
-  "interpolate": "${foo}",
-  "other": "${another} + ${deep.key} + ${deep.alternative:alternative value}"
-}

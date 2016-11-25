@@ -7,13 +7,18 @@ use Nerd\Framework\ServiceProvider;
 
 class TestExceptionServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function boot()
     {
-        $this->getApplication()->singleton(ExceptionServiceContract::class, TestExceptionService::class);
+        //
     }
 
-    public static function provides()
+    public function register()
     {
-        return [ExceptionServiceContract::class];
+        $this->getApp()->singleton('app.exception-handler', TestExceptionService::class);
+    }
+
+    public function provides()
+    {
+        return ['app.exception-handler'];
     }
 }

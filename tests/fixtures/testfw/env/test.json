@@ -1,8 +1,0 @@
-{
-  "env": "test",
-  "foo": "bar",
-  "another": "value",
-  "deep": {
-    "key": "ps"
-  }
-}

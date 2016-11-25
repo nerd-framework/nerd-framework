@@ -27,23 +27,22 @@ class Application extends Container implements ApplicationContract
     public function __construct($baseDir, $environment)
     {
         $this->setBaseDir($baseDir);
-        $this->setEnv($environment);
+        $this->setEnvironment($environment);
 
-        $this->bind(Application::class, $this);
 
-        $this->loadEnv();
+        $this->bind('app', $this);
+        $this->alias('app', ApplicationContract::class);
+
         $this->loadConfig();
 
         $this->loadServiceProviders();
-
-        $this->loadServices();
     }
 
     /**
      * @param $environment
      * @return void
      */
-    private function setEnv($environment)
+    private function setEnvironment($environment)
     {
         $this->environment = $environment;
     }
@@ -51,7 +50,7 @@ class Application extends Container implements ApplicationContract
     /**
      * @return string
      */
-    public function getEnv()
+    public function getEnvironment()
     {
         return $this->environment;
     }
@@ -63,8 +62,7 @@ class Application extends Container implements ApplicationContract
     public function handle(RequestContract $request)
     {
         try {
-            $router = $this->get(RouterContract::class);
-            $response = $router->handle($request);
+            $response = $this['app.router']->handle($request);
             return $this->normalizeResponse($response);
         } catch (\Exception $exception) {
             return $this->handleException($exception);
@@ -90,9 +88,7 @@ class Application extends Container implements ApplicationContract
      */
     private function convertResponse($response)
     {
-        $converter = $this->get(ResponseServiceContract::class);
-
-        return $converter->convert($response);
+        return $this['app.response-converter']->convert($response);
     }
 
     /**
@@ -102,34 +98,33 @@ class Application extends Container implements ApplicationContract
      */
     private function handleException(\Exception $exception)
     {
-        if (!$this->has(ExceptionServiceContract::class)) {
+        if (!isset($this['app.exception-handler'])) {
             throw $exception;
         }
 
-        $handler = $this->get(ExceptionServiceContract::class);
-
-        return $handler->handle($exception);
+        return $this['app.exception-handler']->handle($exception);
     }
 
     /**
-     * @param string $id
+     * @param string $serviceId
      * @return object
      */
-    public function get($id)
+    public function get($serviceId)
     {
-        if (!parent::has($id) && $this->isServiceProvided($id)) {
-            $this->requireService($id);
+        if (!parent::has($serviceId) && $this->isServiceProvided($serviceId)) {
+            $this->registerService($serviceId);
         }
-        return parent::get($id);
+
+        return parent::get($serviceId);
     }
 
     /**
-     * @param string $id
+     * @param string $serviceId
      * @return bool
      */
-    public function has($id)
+    public function has($serviceId)
     {
-        return parent::has($id) || $this->isServiceProvided($id);
+        return parent::has($serviceId) || $this->isServiceProvided($serviceId);
     }
 
     /**
@@ -137,22 +132,10 @@ class Application extends Container implements ApplicationContract
      */
     public function loadServiceProviders()
     {
-        $providerClasses = $this->config("core.serviceProviders", []);
+        $serviceProviderClasses = $this->config("app.service-providers", []);
 
-        array_walk($providerClasses, function ($class) {
-            $this->registerServiceProvider($class);
+        array_walk($serviceProviderClasses, function ($serviceProviderClass) {
+            $this->registerServiceProvider($serviceProviderClass);
         });
-    }
-
-    /**
-     * Load Services from Config File
-     */
-    public function loadServices()
-    {
-        $services = $this->config("core.services", []);
-
-        foreach ($services as $id => $name) {
-            $this->singleton($id, $name);
-        }
     }
 }

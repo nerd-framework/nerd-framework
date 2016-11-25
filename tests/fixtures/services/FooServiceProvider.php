@@ -6,12 +6,17 @@ use Nerd\Framework\ServiceProvider;
 
 class FooServiceProvider extends ServiceProvider
 {
-    public function register()
+    public function boot()
     {
-        $this->getApplication()->singleton("foo", FooService::class);
+        //
     }
 
-    public static function provides()
+    public function register()
+    {
+        $this->getApp()->singleton("foo", FooService::class);
+    }
+
+    public function provides()
     {
         return ["foo"];
     }

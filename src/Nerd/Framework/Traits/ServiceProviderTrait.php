@@ -9,12 +9,7 @@ use Nerd\Framework\Services\ServiceProviderContract;
 trait ServiceProviderTrait
 {
     /**
-     * @var array
-     */
-    private $serviceProviderClasses = [];
-
-    /**
-     * @var array
+     * @var ServiceProviderContract[]
      */
     private $servicesProvidedByProviders = [];
 
@@ -24,52 +19,42 @@ trait ServiceProviderTrait
      */
     public function registerServiceProvider($serviceProviderClass)
     {
-        if (!$this->isValidServiceProviderClass($serviceProviderClass)) {
+        $serviceProvider = $this->invoke($serviceProviderClass);
+
+        if (!$serviceProvider instanceof ServiceProviderContract) {
             throw new ApplicationException(
-                "Class \"$serviceProviderClass\" must be instance of ServiceProvider class."
+                "Class \"$serviceProviderClass\" must implement ServiceProviderContract interface."
             );
         }
 
-        $providedServices = $serviceProviderClass::provides();
+        $serviceProvider->boot();
 
-        $index = sizeof($this->serviceProviderClasses);
+        $services = $serviceProvider->provides();
 
-        $this->serviceProviderClasses[] = $serviceProviderClass;
-
-        array_walk($providedServices, function ($service) use ($index) {
-            $this->servicesProvidedByProviders[$service] = $index;
+        array_walk($services, function ($serviceId) use ($serviceProvider) {
+            $this->servicesProvidedByProviders[$serviceId] = $serviceProvider;
         });
     }
 
-    public function requireService($service)
+    public function registerService($serviceId)
     {
-        $providerIndex = $this->servicesProvidedByProviders[$service];
-        $providerClass = $this->serviceProviderClasses[$providerIndex];
+        $serviceProvider = $this->servicesProvidedByProviders[$serviceId];
 
-        /**
-         * @var ServiceProviderContract $providerInstance
-         */
-        $providerInstance = new $providerClass($this);
-        $providerInstance->register();
+        $services = $serviceProvider->provides();
+
+        array_walk($services, function ($serviceId) {
+            unset($this->servicesProvidedByProviders[$serviceId]);
+        });
+
+        $serviceProvider->register();
     }
 
     /**
-     * @param string $service
+     * @param string $serviceId
      * @return bool
      */
-    public function isServiceProvided($service)
+    public function isServiceProvided($serviceId)
     {
-        return array_key_exists($service, $this->servicesProvidedByProviders);
-    }
-
-    /**
-     * @param $serviceProviderClass
-     * @return bool
-     */
-    private function isValidServiceProviderClass($serviceProviderClass)
-    {
-        $reflection = new \ReflectionClass($serviceProviderClass);
-
-        return $reflection->isSubclassOf(ServiceProvider::class);
+        return array_key_exists($serviceId, $this->servicesProvidedByProviders);
     }
 }

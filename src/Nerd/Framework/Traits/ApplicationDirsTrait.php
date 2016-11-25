@@ -21,11 +21,6 @@ trait ApplicationDirsTrait
         return $this->getBaseDir() . DIRECTORY_SEPARATOR . 'config';
     }
 
-    public function getEnvDir()
-    {
-        return $this->getBaseDir() . DIRECTORY_SEPARATOR . 'env';
-    }
-
     public function getApplicationDir()
     {
         return $this->getBaseDir() . DIRECTORY_SEPARATOR . 'app';
@@ -34,5 +29,10 @@ trait ApplicationDirsTrait
     public function getResourcesDir()
     {
         return $this->getBaseDir() . DIRECTORY_SEPARATOR . 'resources';
+    }
+
+    public function getStorageDir()
+    {
+        return $this->getBaseDir() . DIRECTORY_SEPARATOR . 'storage';
     }
 }

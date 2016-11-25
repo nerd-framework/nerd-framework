@@ -9,11 +9,21 @@ class TestRoutingServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        $this->getApplication()->singleton(RouterContract::class, TestRoutingService::class);
+        $this->getApp()->singleton('app.router', TestRoutingService::class);
     }
 
-    public static function provides()
+    public function provides()
     {
-        return [RouterContract::class];
+        return ['app.router'];
+    }
+
+    /**
+     * Boot the service provider.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        //
     }
 }
