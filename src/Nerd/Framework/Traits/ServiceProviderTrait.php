@@ -27,7 +27,7 @@ trait ServiceProviderTrait
             );
         }
 
-        $serviceProvider->boot();
+        $serviceProvider->register();
 
         $services = $serviceProvider->provides();
 
@@ -46,7 +46,7 @@ trait ServiceProviderTrait
             unset($this->servicesProvidedByProviders[$serviceId]);
         });
 
-        $serviceProvider->register();
+        $serviceProvider->boot();
     }
 
     /**
